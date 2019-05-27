@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hektorks.take.common.repository.mappers.MoviesMapper">
+
+  <resultMap id="MovieResultMap" type="Movie">
+    <result property="id" column="ID"/>
+    <result property="title" column="TITLE"/>
+    <result property="year" column="YEAR"/>
+    <result property="cast" column="CAST"/>
+    <result property="director" column="DIRECTOR"/>
+    <result property="story" column="STORY"/>
+    <result property="price" column="PRICE"/>
+    <association property="movieCategory" resultMap="CategoryResultMap" javaType="MovieCategory"/>
+  </resultMap>
+
+  <resultMap id="CategoryResultMap" type="MovieCategory">
+    <result property="name" column="CATEGORY"/>
+  </resultMap>
+
+  <select id="selectMoviesByTypes" parameterType="list" resultMap="MovieResultMap">
+    select ID, TITLE, CATEGORY, YEAR, CAST, DIRECTOR, STORY, PRICE
+    from MOVIES
+    <if test="list != null">
+      <where>
+        CATEGORY in
+        <foreach item="movieCategory" collection="list"
+                 open="(" separator="," close=")">
+          #{movieCategory.name}
+        </foreach>
+      </where>
+    </if>
+  </select>
+
+  <select id="selectMovieById" parameterType="string" resultMap="MovieResultMap">
+    select ID, TITLE, CATEGORY, YEAR, CAST, DIRECTOR, STORY, PRICE
+    from MOVIES
+    where id = #{movieId}
+  </select>
+
+</mapper>

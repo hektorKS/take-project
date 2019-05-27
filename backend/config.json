@@ -1,0 +1,9 @@
+{
+  "database": {
+    "driver": "com.mysql.cj.jdbc.Driver",
+    "url": "jdbc:mysql://take-mysql:3306/take",
+    "username": "root",
+    "password": "2cb59d0bcd6a4a96aaf52e368aeacde7",
+    "maximumPoolSize": 50
+  }
+}

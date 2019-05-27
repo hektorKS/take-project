@@ -1,0 +1,54 @@
+version: '3'
+services:
+  take-mysql:
+    image: mysql:8.0.13
+    container_name: take-mysql
+    restart: always
+    environment:
+      - MYSQL_DATABASE=take
+      - MYSQL_ROOT_PASSWORD=2cb59d0bcd6a4a96aaf52e368aeacde7
+      - MYSQL_HOST=127.0.0.1
+      - MYSQL_PORT=3306
+    volumes:
+      - take-mysql-data:/var/lib/mysql
+      - ./database/movies.sql:/docker-entrypoint-initdb.d/movies.sql
+    networks:
+      take:
+        ipv4_address: 172.20.0.2
+    ports:
+      - "0.0.0.0:3306:3306"
+  take-frontend:
+    build:
+      context: webclient
+      dockerfile: Dockerfile
+    image: take-frontend:1.0.0
+    container_name: take-frontend
+    restart: always
+    networks:
+      take:
+        ipv4_address: 172.20.0.3
+    ports:
+      - "0.0.0.0:4200:80"
+  take-backend:
+    build:
+      context: backend
+      dockerfile: Dockerfile
+    image: take-backend:1.0.0
+    container_name: take-backend
+    restart: always
+    depends_on:
+      - "take-mysql"
+    networks:
+      take:
+        ipv4_address: 172.20.0.4
+    ports:
+      - "0.0.0.0:9090:9090"
+networks:
+  take:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.20.0.0/16
+volumes:
+  take-mysql-data:

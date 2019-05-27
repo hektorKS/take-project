@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/details.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+          integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <script src="js/external/jquery-3.4.1.min.js"></script>
+    <title>Movie details</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="details">
+        <div class='cart-icon' onclick="addItemToCartWithRedirect(event)">
+          <span>" + movie.id + "</span>
+          <i class='fas fa-shopping-cart'></i>
+        </div>
+        <div class="details-item details-year">
+          <span>Rok produkcji</span>
+        </div>
+        <div class="details-item details-category">
+          <span>Kategoria</span>
+        </div>
+        <div class="details-item details-cast">
+          <span>Aktorzy</span>
+        </div>
+        <div class="details-item details-director">
+          <span>Reżyseria</span>
+        </div>
+        <div class="details-item details-story">
+          <span>Opis</span>
+        </div>
+        <div class="details-item details-price">
+          <span>Cena</span>
+        </div>
+        <a href="index.html">Powrót</a>
+      </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/details.js"></script>
+  </body>
+
+</html>

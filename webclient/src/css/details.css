@@ -1,0 +1,56 @@
+.details {
+  width: 100%;
+  background-color: var(--default-color);
+  padding: 1rem;
+  position: relative;
+  border-radius: 5%;
+}
+
+.details h1 {
+  border-bottom: 2px solid black;
+  margin-bottom: 1rem;
+  margin-left: 0.5rem;
+  display: inline-block;
+}
+
+.details-item {
+  padding-left: 2rem;
+  border-bottom: 2px solid black;
+  line-height: 1.7rem;
+  display: flex;
+}
+
+.details-item:nth-last-child(2) {
+  border-bottom: 0;
+}
+
+.details-item span {
+  padding: 0.5rem;
+}
+
+.details-item span:nth-child(1) {
+  flex: 1;
+  border-right: 2px solid black;
+}
+
+.details-item span:nth-child(2) {
+  flex: 7
+}
+
+a {
+  position: absolute;
+  top: 2rem;
+  right: 3rem;
+}
+
+a:link,
+a:visited {
+  background-color: var(--default-even-table-color);
+  color: black;
+  padding: 0.3rem 0.4rem;
+}
+
+a:hover,
+a:active {
+  background-color: var(--default-color-darker);
+}

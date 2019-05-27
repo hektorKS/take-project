@@ -1,0 +1,47 @@
+.cart {
+  background-color: var(--default-color);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5%;
+  padding: 1rem;
+  margin-right: 1rem;
+}
+
+.cart h1 {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.cart table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.cart table td:nth-child(1) {
+  width: 10%;
+}
+
+.cart table td {
+  width: 30%;
+  text-align: center;
+}
+
+.sum-up {
+  display: flex;
+  border-top: 2px solid black;
+  padding: 1rem;
+}
+
+.sum-up p,
+.sum-up div {
+  text-align: center;
+  flex: 1;
+}
+
+.sum-up div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
